@@ -1,0 +1,296 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #201c1c;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+textarea {
+  resize: none;
+}
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+/* drop down */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dropdown {
+  display: none;
+}
+.buttons-header {
+  display: block;
+}
+
+.dropDownElements {
+  display: none;
+}
+
+@media (max-width: 550px) {
+  .dropdown {
+    display: block;
+  }
+  .dropdown-elem {
+    min-width: max-content;
+    text-align: center;
+  }
+  .buttons-header {
+    display: none;
+  }
+  .dropDownElements {
+    display: block;
+  }
+}
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__zoomIn {
+  --animate-duration: 0.2s;
+}
+.animate__animated.animate__zoomOut {
+  --animate-duration: 0.2s;
+}
+.bg {
+  background-color: #201c1c;
+  background: url(../media/bg.png);
+  background-position: right;
+  background-size: cover;
+}
+.main-color {
+  background-color: #201c1c;
+}
+.vote-btn {
+  transition-duration: 300ms;
+  cursor: pointer;
+}
+.vote-btn.active {
+  color: #16a34a;
+}
+.vote-btn:hover {
+  transform: scale(1.5);
+}
+
+.post-img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.custom-grid-layout {
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(250px, 1300px) minmax(1em, 1fr);
+}
+
+.intro-title {
+  grid-column: 2;
+  margin-top: 1em;
+  font-weight: bold;
+}
+.post {
+  grid-column: 2;
+}
+.about-intro {
+  grid-column: 2;
+}
+
+.main-grid {
+  grid-column: 2;
+  display: grid;
+  grid-gap: 1.3em;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-flow: dense;
+}
+
+.horizontal {
+  grid-column: span 2;
+}
+.full-height {
+  flex-grow: 1;
+}
+
+@media (max-width: 680px) {
+  .horizontal {
+    grid-column: span 1;
+  }
+}
+
+.animate__animated.animate__zoomIn {
+  --animate-duration: 1s;
+}
+
+.bg-effect {
+  background-color: rgba(0, 0, 0, 0.61);
+  backdrop-filter: blur(3px);
+}
+
+.centered {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+.post-details-section .custom-grid-layout {
+  grid-template-columns:
+    minmax(1em, 1fr) minmax(250px, 800px) minmax(250px, 1200px)
+    minmax(1em, 1fr);
+}
+.post-content {
+  grid-column: 2;
+  padding: 1em;
+}
+.comments {
+  grid-column: 3;
+}
+
+.post-details-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.post-content {
+  font-size: 1.2rem;
+}
+.comments {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.comments-list {
+  flex-grow: 1;
+  margin: 1.2em;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+}
+
+.comments-list-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.min-content {
+  width: fit-content;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #006c1d;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #00af2f;
+  border-radius: 50px;
+}
+@media (max-width: 900px) {
+  .post-content {
+    grid-column: 2/4;
+  }
+  .comments {
+    grid-column: 2/4;
+  }
+}
+@media (max-width: 550px) {
+  .post-details-section .custom-grid-layout {
+    grid-template-columns:
+      minmax(1em, 1fr) minmax(150px, 800px) minmax(150px, 1200px)
+      minmax(1em, 1fr);
+  }
+}
+.custom-file-input-label {
+  width: fit-content;
+  border: 1px solid green;
+  padding: 1em 2.5em;
+  border-radius: 5px;
+}
+.custom-file-input {
+  position: absolute;
+  z-index: -1;
+  width: 0px;
+  display: none;
+}
+
