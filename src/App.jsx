@@ -5,7 +5,7 @@ import {
   RouterProvider,
   createRoutesFromElements,
   Route,
-  createHashRouter,
+  createBrowserRouter,
 } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./Home";
@@ -16,15 +16,15 @@ import { auth } from "./APIS/auth";
 
 export default function App() {
 
-  const router = createHashRouter(
+  const router = createBrowserRouter(
 
     createRoutesFromElements(
       <>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home />} loader={auth} />
           <Route path="sign-in" element = {<Login/>} />
           <Route path="sign-up" element = {<Register/>} />
-          <Route path="/post/:id" element = {<PostDetails/>} loader={auth} />
+          <Route path="/post/:id" element = {<PostDetails/>} />
         </Route>
       </>
     )

@@ -2,6 +2,7 @@ import { data } from "autoprefixer";
 import React from "react";
 import imgTest from "../media/testface.jpg";
 const Comment = ({ data }) => {
+  console.log(data);
   return (
     <div className="border-b pb-[2em] pt-[1em] flex">
       <img

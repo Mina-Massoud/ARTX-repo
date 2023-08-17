@@ -30,17 +30,13 @@ const Home = (props) => {
 
   return (
     <>
+      {readyToPost && (
+        <CreatePost readyToPostFunc={readyToPostFunc} postClosedProp={false} />
+      )}
       <div className="home pb-[2em] bg-effect">
-        {readyToPost && (
-          <CreatePost
-            readyToPostFunc={readyToPostFunc}
-            postClosedProp={false}
-          />
-        )}
         <div className="intro custom-grid-layout">
           <h1 className="intro-title text-[2rem] md:text-[3rem]">
-            <span className="text-blue-500">Welcome</span> This is
-            Artx.
+            <span className="text-blue-500">Welcome</span> This is Artx.
           </h1>
           <div className="about-intro">
             <strong className="block py-[1em] text-white text-xl">

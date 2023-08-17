@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import "animate.css";
 import axios from "axios";
+
 const CreatePost = ({ readyToPostFunc }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token")?.replace(/^"|"$/g, "");
@@ -68,7 +69,7 @@ const CreatePost = ({ readyToPostFunc }) => {
   return (
     <div
       ref={myPost}
-      className={`border bg-effect top-level ${
+      className={`border bg-effect  ${
         postClosed
           ? "animate__animated animate__fadeOut"
           : "animate__animated animate__fadeIn"

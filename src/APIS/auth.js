@@ -7,5 +7,6 @@ export function auth() {
   if (!user) {
     throw redirect(`/sign-in`);
   }
+  return true;
   return null;
 }

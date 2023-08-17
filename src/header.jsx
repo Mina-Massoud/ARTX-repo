@@ -96,7 +96,7 @@ const Header = (props) => {
             </Link>
           </div>
         )}
-        {username && <p className="font-black">{username}</p>}
+        {username && <p onClick={()=>{localStorage.clear() ; navigate("/sign-in")}} className="font-black">{username}</p>}
       </div>
     </div>
   );

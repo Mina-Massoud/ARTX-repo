@@ -31,45 +31,36 @@ const FullPostDetail = ({ data }) => {
   }
   return (
     <div className="overflow-handle">
-      <div className="flex flex-col mx-[1em] sm:flex-row border-b pb-[1em] mb-[2em] justify-between ">
+      <div className="flex  mx-[1em] border-b pb-[1em] mb-[2em] justify-between ">
         <div className="flex mb-[1em]">
           <img
             className="max-w-[50px] mr-[1em] w-[50px] h-[50px] rounded-full"
-            src={data.owner.image? data.owner.image : imgTest}
+            src={data.owner.image ? data.owner.image : imgTest}
             alt=""
           />
           <div>
-            <h3 className="font-black">{data.owner.first_name} {data.owner.list_name}</h3>
+            <h3 className="font-black">
+              {data.owner.first_name} {data.owner.list_name}
+            </h3>
             <p className="text-[0.7em]">{data.owner.username}</p>
           </div>
         </div>
         <div>
-          {!isVoted ? (
-            <div className="flex items-center">
-              {" "}
-              <BiSolidUpvote
-                onClick={handleClick}
-                className="vote-btn active"
-              />
-              <span className="my-[0.4em] mx-[0.5em]">{voteCount}</span>
-            </div>
-          ) : (
-            <p
+          <div className="flex items-center">
+            {" "}
+            <BiSolidUpvote
               onClick={handleClick}
-              className="text-sky-300 cursor-pointer border-sky-300 border px-[1.3em] py-[0.3em] rounded-lg"
-            >
-              UnVoted
-            </p>
-          )}
+              className={`vote-btn ${isVoted && "active"}`}
+            />
+            <span className="my-[0.4em] mx-[0.5em]">{voteCount}</span>
+          </div>
         </div>
       </div>
 
       <div className="lg:mx-[3em] flex flex-col">
         <p className="mb-[1em] border-b pb-[1em]">{data.name}</p>
         <img src={data.photo} className="rounded-lg p-[1em]" alt="" />
-        <p className="my-[2em] border-t pt-[1em]">
-         {data.description}
-        </p>
+        <p className="my-[2em] border-t pt-[1em]">{data.description}</p>
       </div>
     </div>
   );

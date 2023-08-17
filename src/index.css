@@ -137,10 +137,9 @@ button:focus-visible {
 }
 .vote-btn.active {
   color: #7dd3fc;
-}
-.vote-btn:hover {
   transform: scale(1.5);
 }
+
 
 .post-img {
   object-fit: cover;
