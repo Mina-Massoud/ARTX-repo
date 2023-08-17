@@ -124,8 +124,7 @@ button:focus-visible {
   --animate-duration: 0.2s;
 }
 .bg {
-  background-color: #201c1c;
-  background: url(../media/bg.png);
+  background: url(../media/richard-horvath-_nWaeTF6qo0-unsplash.jpg);
   background-position: right;
   background-size: cover;
 }
@@ -137,7 +136,7 @@ button:focus-visible {
   cursor: pointer;
 }
 .vote-btn.active {
-  color: #16a34a;
+  color: #7dd3fc;
 }
 .vote-btn:hover {
   transform: scale(1.5);
@@ -173,6 +172,11 @@ button:focus-visible {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-flow: dense;
 }
+@media (max-width: 545px) {
+  .main-grid {
+    margin: 0 auto;
+  }
+}
 
 .horizontal {
   grid-column: span 2;
@@ -192,8 +196,8 @@ button:focus-visible {
 }
 
 .bg-effect {
-  background-color: rgba(0, 0, 0, 0.61);
-  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.41);
+  backdrop-filter: blur(20px);
 }
 
 .centered {
@@ -204,12 +208,12 @@ button:focus-visible {
 }
 .post-details-section .custom-grid-layout {
   grid-template-columns:
-    minmax(1em, 1fr) minmax(250px, 800px) minmax(250px, 1200px)
-    minmax(1em, 1fr);
+    minmax(0,0) minmax(250px, 800px) minmax(250px, 1200px)
+    minmax(0,0);
 }
 .post-content {
   grid-column: 2;
-  padding: 1em;
+  padding: 0.8em;
 }
 .comments {
   grid-column: 3;
@@ -246,7 +250,7 @@ button:focus-visible {
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 3px;
 }
 
 /* Track */
@@ -257,21 +261,19 @@ button:focus-visible {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #006c1d;
+  background: #54bbd8;
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #00af2f;
+  background: #54bbd8;
   border-radius: 50px;
 }
-@media (max-width: 900px) {
-  .post-content {
-    grid-column: 2/4;
-  }
+@media (max-width: 750px) {
+  .post-content,
   .comments {
-    grid-column: 2/4;
+    grid-column: 1/-1;
   }
 }
 @media (max-width: 550px) {
@@ -283,7 +285,7 @@ button:focus-visible {
 }
 .custom-file-input-label {
   width: fit-content;
-  border: 1px solid green;
+  border: 2px solid rgb(0, 136, 255);
   padding: 1em 2.5em;
   border-radius: 5px;
 }
@@ -293,4 +295,44 @@ button:focus-visible {
   width: 0px;
   display: none;
 }
-
+.center-v-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.post-v {
+  max-width: 300px;
+  border-radius: 0.5em;
+}
+.post-v .right-side {
+  display: none;
+}
+.post-v p {
+  display: none;
+}
+.post-v:hover {
+  background-color: #000000;
+  cursor: pointer;
+}
+.post-v:hover p {
+  display: block;
+  z-index: 9999;
+}
+.post-v:hover .right-side {
+  display: block;
+}
+.post-v:hover img {
+  opacity: 0.3;
+}
+.top-level {
+  z-index: 99999999;
+}
+@media (min-width: 800px) {
+  .overflow-handle {
+    overflow-y: scroll;
+    max-height: 90vh;
+  }
+}

@@ -12,7 +12,7 @@ const Post = ({ length, openHandle, data }) => {
   function getRandomNumber(length) {
     return Math.floor(Math.random() * length); // generates a random number between 0 and 10
   }
-
+  console.log(data);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Post = ({ length, openHandle, data }) => {
       });
   }
 
-
+  
   return (
     <div className="animate__animated animate__zoomIn card_small ">
       <div className="right-side relative z-[99999]">

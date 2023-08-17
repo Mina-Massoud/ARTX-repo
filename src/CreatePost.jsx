@@ -26,7 +26,6 @@ const CreatePost = ({ readyToPostFunc }) => {
       readyToPostFunc(postClosed);
     }, 300);
   }
-  
 
   function handlePublishPost() {
     axios
@@ -45,47 +44,45 @@ const CreatePost = ({ readyToPostFunc }) => {
       });
   }
 
-  const [selectedFile, setSelectedFile] = useState(null);
+  var myCropWidget = cloudinary.createUploadWidget(
+    {
+      cloudName: "dik65evmf", // Replace with your Cloudinary cloud name
+      uploadPreset: "z9w9zvet", // Replace with your Cloudinary upload preset
+      folder: "widgetUpload",
+      cropping: true,
+      resourceType: "image", // Add this line to filter only image files
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        setPostData((prev) => {
+          return { ...prev, photo: result.info.url };
+        });
+      }
+    }
+  );
 
   function createWidget() {
-    var myCropWidget = cloudinary.createUploadWidget(
-      {
-        cloudName: "dtetlw7wz",
-        uploadPreset: "qu73xckw",
-        folder: "widgetUpload",
-        cropping: true,
-        resourceType: "image", // Add this line to filter only image files
-      },
-      (error, result) => {
-        if (!error && result && result.event === "success") {
-          setPostData((prev) => {
-            return { ...prev, photo: result.info.url };
-          });
-        }
-      }
-    );
-
     myCropWidget.open();
   }
-
+  
   return (
     <div
       ref={myPost}
-      className={`border ${
+      className={`border bg-effect top-level ${
         postClosed
           ? "animate__animated animate__fadeOut"
           : "animate__animated animate__fadeIn"
       }
-    : "animate__animated animate__zoomIn" border-white p-[1em] w-[500px] fixed centered flex flex-col rounded-lg bg-effect`}
+    : "animate__animated animate__zoomIn" border-white p-[1em] fixed centered flex flex-col rounded-lg`}
     >
       <AiOutlineArrowLeft
         size={30}
         onClick={() => {
           handleClosePost();
         }}
-        className="hover:bg-green-800 hover:cursor-pointer py-[0.2em] rounded-lg tranisiton duration-300"
+        className="hover:bg-sky-800 hover:cursor-pointer py-[0.2em] rounded-lg tranisiton duration-300"
       />
-      <div className="post-section flex flex-col  justify-center text-black mx-auto full-height py-[2em] w-fit">
+      <div className="post-section flex flex-col justify-center text-black mx-auto full-height py-[2em] w-fit">
         <h1 className="mb-[2em] text-xl text-white font-black">
           Create Your Post
         </h1>
@@ -103,9 +100,10 @@ const CreatePost = ({ readyToPostFunc }) => {
           }}
         />
         <textarea
-          className="p-[1em] rounded font-black"
+          className="p-[1em] rounded bg-transparent bg-effect border font-black text-white"
           name="description"
           id=""
+          placeholder="Write your Description.."
           cols="40"
           rows="5"
           onChange={(event) => {
@@ -118,7 +116,7 @@ const CreatePost = ({ readyToPostFunc }) => {
         <div className="inputs-post my-[2em]">
           <div className="w-full md:w-1/2">
             <label
-              className="block cursor-pointer custom-file-input-label uppercase tracking-wide text-gray-400 text-xs font-bold mb-2"
+              className="block cursor-pointer custom-file-input-label uppercase tracking-wide text-white text-xs font-bold mb-2"
               htmlFor="grid-city"
               onClick={createWidget}
             >
@@ -128,7 +126,7 @@ const CreatePost = ({ readyToPostFunc }) => {
         </div>
         <button
           onClick={handlePublishPost}
-          className="bg-green-800 text-white py-[0.5em] px-[1.5em] font-black rounded"
+          className="bg-blue-600 text-white py-[0.5em] px-[1.5em] font-black rounded"
         >
           Publish
         </button>

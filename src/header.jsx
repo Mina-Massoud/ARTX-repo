@@ -42,10 +42,10 @@ const Header = (props) => {
   const username = localStorage.getItem("username") ? localStorage.getItem("username").replace(/"/g, "") : "";
 
   return (
-    <div className="h-[50px] w-full flex items-center justify-between px-[3em] border-b-[1px] border-green-800">
+    <div className="h-[50px] bg-effect w-full flex items-center justify-between px-[3em] border-b-[1px] border-[#54bbd8]">
       <Link to="/">
         <h2 className="font-black text-[1.6rem]">
-          Art<span className="text-[2rem] text-green-600">X</span>
+          Art<span className="text-[2rem] text-blue-500">X</span>
         </h2>
       </Link>
       <div className="header-sign-options relative min-w-[100px]">
@@ -67,15 +67,15 @@ const Header = (props) => {
               !dropDownOpened
                 ? "animate__animated animate__zoomOut"
                 : "animate__animated animate__zoomIn"
-            } w-fit border border-green-600 rounded`}
+            } w-fit border border-[#54bbd8] rounded`}
           >
             <Link to="sign-in">
-              <li className="dropdown-elem mx-[1em] rounded  hover:bg-green-600 px-[1em] py-[0.5em] hover:transition duration-200 cursor-pointer">
+              <li className="dropdown-elem mx-[1em] rounded  hover:bg-[#54bbd8] px-[1em] py-[0.5em] hover:transition duration-200 cursor-pointer">
                 Sign in
               </li>
             </Link>
             <Link to="sign-up">
-              <li className="dropdown-elem mx-[1em] rounded  hover:bg-green-600 px-[1em] py-[0.5em] hover:transition duration-200 cursor-pointer">
+              <li className="dropdown-elem mx-[1em] rounded  hover:bg-[#54bbd8] px-[1em] py-[0.5em] hover:transition duration-200 cursor-pointer">
                 Sign Up
               </li>
             </Link>
@@ -84,13 +84,13 @@ const Header = (props) => {
         {!userToken && (
           <div className="buttons-header">
             <Link to="sign-in">
-              <button className="inline-block mx-[0.5em]  px-[1em] py-[0.3em] hover:bg-green-600 tranistion duration-300 rounded">
+              <button className="inline-block mx-[0.5em]  px-[1em] py-[0.3em] hover:bg-[#54bbd8] tranistion duration-300 rounded">
                 Sign in
               </button>
             </Link>
             <p className="inline-block mx-[0.5em]">|</p>
             <Link to="sign-up">
-              <button className="inline-block px-[1em] py-[0.3em] hover:bg-green-600 tranistion duration-300 rounded">
+              <button className="inline-block px-[1em] py-[0.3em] hover:bg-[#54bbd8] tranistion duration-300 rounded">
                 Sign Up
               </button>
             </Link>
