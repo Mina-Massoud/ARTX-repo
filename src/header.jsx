@@ -39,10 +39,12 @@ const Header = (props) => {
   }, []);
 
   const userToken = localStorage.getItem("token");
-  const username = localStorage.getItem("username") ? localStorage.getItem("username").replace(/"/g, "") : "";
+  const username = localStorage.getItem("username")
+    ? localStorage.getItem("username").replace(/"/g, "")
+    : "";
 
   return (
-    <div className="h-[50px] bg-effect w-full flex items-center justify-between px-[3em] border-b-[1px] border-[#54bbd8]">
+    <div className="h-[50px] top-level bg-effect w-full flex items-center justify-between px-[3em] border-b-[1px] border-[#54bbd8]">
       <Link to="/">
         <h2 className="font-black text-[1.6rem]">
           Art<span className="text-[2rem] text-blue-500">X</span>
@@ -96,7 +98,20 @@ const Header = (props) => {
             </Link>
           </div>
         )}
-        {username && <p onClick={()=>{localStorage.clear() ; navigate("/sign-in")}} className="font-black text-right">{username}</p>}
+        {username && (
+          <div className="relative username">
+            <p className="font-black text-right">{username}</p>
+            <p
+              onClick={() => {
+                localStorage.clear();
+                navigate("/sign-in");
+              }}
+              className="fixed bg-white text-blue-600 px-[1.2em] py-[0.6em] rounded-lg top-[2em]"
+            >
+              log out
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );

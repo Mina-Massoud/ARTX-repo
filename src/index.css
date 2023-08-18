@@ -140,7 +140,6 @@ button:focus-visible {
   transform: scale(1.5);
 }
 
-
 .post-img {
   object-fit: cover;
   object-position: center;
@@ -207,8 +206,8 @@ button:focus-visible {
 }
 .post-details-section .custom-grid-layout {
   grid-template-columns:
-    minmax(0,0) minmax(250px, 800px) minmax(250px, 1200px)
-    minmax(0,0);
+    minmax(0, 0) minmax(250px, 800px) minmax(250px, 1200px)
+    minmax(0, 0);
 }
 .post-content {
   grid-column: 2;
@@ -334,4 +333,11 @@ button:focus-visible {
     overflow-y: scroll;
     max-height: 90vh;
   }
+}
+.username p:last-child {
+  display: none;
+}
+.username:hover p:last-child {
+  cursor: pointer;
+  display: block;
 }
