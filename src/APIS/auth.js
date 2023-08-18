@@ -1,12 +1,20 @@
 import { redirect } from "react-router-dom";
-
+import axios from "axios";
 export function auth() {
+  const token = localStorage.getItem("token")?.replace(/^"|"$/g, "");
+  axios
+    .get("http://localhost:8000/api/accounts/check_token/", {
+      headers: { Authorization: `Token ${token}` },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 
-  const user = localStorage.getItem("token");
-
-  if (!user) {
+  if (!token) {
     throw redirect(`/sign-in`);
   }
-  return true;
   return null;
 }

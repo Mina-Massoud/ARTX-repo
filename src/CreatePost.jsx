@@ -6,6 +6,7 @@ import axios from "axios";
 
 const CreatePost = ({ readyToPostFunc }) => {
   const navigate = useNavigate();
+  const [warning, setWarning] = useState(false);
   const token = localStorage.getItem("token")?.replace(/^"|"$/g, "");
   if (!token) {
     navigate("/sign-in");
@@ -29,20 +30,24 @@ const CreatePost = ({ readyToPostFunc }) => {
   }
 
   function handlePublishPost() {
-    axios
-      .post("http://127.0.0.1:8000/api/portrait/portraits/", postData, {
-        headers: {
-          "content-type": "application/json",
-          Accept: "application/json",
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        handleClosePost();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    if (!postData.photo) {
+      setWarning(true);
+    } else {
+      axios
+        .post("http://127.0.0.1:8000/api/portrait/portraits/", postData, {
+          headers: {
+            "content-type": "application/json",
+            Accept: "application/json",
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          handleClosePost();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   }
 
   var myCropWidget = cloudinary.createUploadWidget(
@@ -65,7 +70,7 @@ const CreatePost = ({ readyToPostFunc }) => {
   function createWidget() {
     myCropWidget.open();
   }
-  
+
   return (
     <div
       ref={myPost}
@@ -131,6 +136,11 @@ const CreatePost = ({ readyToPostFunc }) => {
         >
           Publish
         </button>
+        {warning && (
+          <p className="text-orange-500 my-[2em] text-xs italic">
+            You have to upload image to publish yout post
+          </p>
+        )}
       </div>
     </div>
   );

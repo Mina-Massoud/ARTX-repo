@@ -3,6 +3,7 @@ import { BiSolidUpvote } from "react-icons/bi";
 import "animate.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import "animate.css";
 const PostV = ({ data }) => {
   const [hoverEff, setHoverEff] = useState(false);
   const [voteCount, setVoteCount] = useState(data.votes);
@@ -38,7 +39,7 @@ const PostV = ({ data }) => {
 
   return (
     <div
-      className={`relative post-v`}
+      className={`relative animate__animated animate__zoomIn post-v`}
       onClick={handleNavigate}
       onMouseOver={() => {
         setHoverEff(true);
@@ -47,7 +48,7 @@ const PostV = ({ data }) => {
         setHoverEff(false);
       }}
     >
-      <div className="right-side relative">
+      <div className="right-side  relative">
         <div
           onMouseOver={() => {
             setDisableParent(true);
